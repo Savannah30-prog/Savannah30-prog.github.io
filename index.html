@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MQTT</title>
+
+    <!-- Added the Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div id="text">
+        <h1 id="mqtt">MQTT</h1>
+    </div>
+
+
+  
+    <div class="main-div1">
+        <div class="cols">
+            <h1>Broker</h1>
+            
+            <div class="rows">
+                <label>Adddress:</label>
+                <br>
+                <input id="address" value="wss://test.mosquitto.org:8081/mqtt">
+            </div>
+
+            <div class="rows">
+                <button id="connect" >Connect</button>
+                <button id="disconnect">Disconnect</button>
+            </div>
+
+            <div class="rows">
+                <label>Status:</label>
+                <br>
+                <input id="status" class="alert alert-info" value="Press Connect" >
+            </div>
+        </div>
+
+        <div class="cols">
+            <h1 id="h1">Incoming messages</h1>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" id="topicHead">Topic</th>
+                        <th scope="col" id="payloadHead">Payload</th>
+                        <th scope="col" id="time_stamp">Time Stamp</th>
+                    </tr>
+                    <tbody id="add-tbl1">
+                        </tbody>
+                </thead>
+            </table>
+            
+        </div>
+    </div>
+
+
+    <div class="main-div2">
+        <div class="cols">
+            <h1>Publish</h1>
+            
+            <div class="rows">
+                <label>Topic:</label>
+                <br>
+                <input id="pub-topic" type="text">
+            </div>
+
+            <div class="rows">
+                <label>Payload:</label>
+                <br>
+                <input id="pub-payload" type="text">
+            </div>
+
+            <div class="rows">
+                <button id="publish_button">Publish</button>
+            </div>
+
+        </div>
+
+        <div class="cols">
+            <h1 id="h1">Published Messages</h1>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" id="topicHead">Topic</th>
+                        <th scope="col" id="payload">Payload</th>
+                        <th scope="col" id="timeStamp">Time Stamp</th>
+                    </tr>
+                    <tbody id="add-tbl2">
+                        </tbody>
+                </thead>
+            </table>
+            
+        </div>
+    </div>
+
+
+    <div class="main-div3">
+        <div class="cols">
+            <h1>Subscribe</h1>
+            
+            <div class="rows">
+                <label>Topic:</label>
+                <br>
+                <input id="sub-topic" type="text">
+            </div>
+
+            <div class="rows">
+                <button id="subscribe-btn">Subscribe</button>
+                <button id="unsubscribe-btn" onclick="unsubscribe()">Unsubscribe</button>
+            </div>
+
+        </div>
+
+        <div class="cols">
+            <h1 id="h1">Subscribed Messages</h1>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" id="topicHead">Topic</th>
+                        <th scope="col" id="timeStamp">Time Stamp</th>
+                    </tr>
+                    <tbody id="add-tbl3">
+                        </tbody>
+                </thead>
+            </table>
+            
+        </div>
+    </div>
+
+
+
+</body>
+<script src="./browserMqtt.js"></script>
+<script src="./index.js"></script>
+
+</html>
